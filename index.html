@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornalzinho Contra o Bullying Prof Francine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-newspaper"></i> Jornalzinho Contra o Bullying</h1>
+            <p class="subtitle">Professora Francine 4ª ano</p>
+        </header>
+        
+        <div class="app-container">
+            <div class="sidebar">
+                <button class="nav-btn active" data-screen="welcome">
+                    <i class="fas fa-home"></i> Início
+                </button>
+                <button class="nav-btn" data-screen="interview">
+                    <i class="fas fa-microphone-alt"></i> Entrevista
+                </button>
+                <button class="nav-btn" data-screen="results">
+                    <i class="fas fa-chart-pie"></i> Resultados
+                </button>
+                <button class="nav-btn" data-screen="data">
+                    <i class="fas fa-database"></i> Dados Salvos
+                </button>
+            </div>
+            
+            <div class="main-content">
+                <!-- Decorações -->
+                <div class="decoration">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                    <div class="star"><i class="fas fa-star"></i></div>
+                    <div class="star"><i class="fas fa-star"></i></div>
+                    <div class="star"><i class="fas fa-star"></i></div>
+                </div>
+                
+                <!-- Tela de Boas-Vindas -->
+                <div id="welcome-screen" class="screen active">
+                    <div class="welcome-content">
+                        <h2 class="floating">Bem-vindo ao Jornalzinho Contra o Bullying!</h2>
+                        <p class="welcome-text">
+                            Este é um espaço seguro onde você pode entrevistar seus colegas sobre bullying
+                            e ajudar nossa escola a ser um lugar mais acolhedor para todos!
+                        </p>
+                        
+                        <div class="features">
+                            <div class="feature-card pulse">
+                                <i class="fas fa-comments"></i>
+                                <h3>Entrevistas</h3>
+                                <p>Faça perguntas sobre bullying</p>
+                            </div>
+                            <div class="feature-card pulse" style="animation-delay: 0.2s">
+                                <i class="fas fa-save"></i>
+                                <h3>Salve Dados</h3>
+                                <p>Guarde todas as respostas</p>
+                            </div>
+                            <div class="feature-card pulse" style="animation-delay: 0.4s">
+                                <i class="fas fa-chart-bar"></i>
+                                <h3>Gráficos</h3>
+                                <p>Veja resultados em gráficos</p>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 30px;">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234facfe'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v2h-2zm0-10h2v8h-2z'/%3E%3C/svg%3E" 
+                                 alt="Anti-Bullying" style="width: 100px; height: 100px; opacity: 0.8;">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tela de Entrevista -->
+                <div id="interview-screen" class="screen">
+                    <h2>Entrevista sobre Bullying</h2>
+                    <p style="text-align: center; margin-bottom: 20px; color: #555;">
+                        Faça perguntas para seus colegas e registre as respostas
+                    </p>
+                    
+                    <div class="interview-form">
+                        <div class="form-group">
+                            <label for="interviewer-name"><i class="fas fa-user"></i> Seu Nome (Repórter)</label>
+                            <input type="text" id="interviewer-name" placeholder="Digite seu nome">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interviewee-name"><i class="fas fa-user-friends"></i> Nome do Colega Entrevistado</label>
+                            <input type="text" id="interviewee-name" placeholder="Digite o nome do colega">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interview-date"><i class="fas fa-calendar-alt"></i> Data da Entrevista</label>
+                            <input type="date" id="interview-date">
+                        </div>
+                        
+                        <div class="question-container" data-question="q1">
+                            <label><i class="fas fa-question-circle"></i> Você já sofreu bullying na escola?</label>
+                            <div class="options">
+                                <div class="option" data-value="sim">Sim</div>
+                                <div class="option" data-value="nao">Não</div>
+                                <div class="option" data-value="talvez">Talvez</div>
+                            </div>
+                        </div>
+                        
+                        <div class="question-container" data-question="q2">
+                            <label><i class="fas fa-question-circle"></i> Você já presenciou alguém sofrendo bullying?</label>
+                            <div class="options">
+                                <div class="option" data-value="sim">Sim</div>
+                                <div class="option" data-value="nao">Não</div>
+                                <div class="option" data-value="talvez">Talvez</div>
+                            </div>
+                        </div>
+                        
+                        <div class="question-container" data-question="q3">
+                            <label><i class="fas fa-question-circle"></i> O que você faz quando vê alguém sofrendo bullying?</label>
+                            <div class="options">
+                                <div class="option" data-value="ajudo">Ajudo a pessoa</div>
+                                <div class="option" data-value="professor">Conto para o professor</div>
+                                <div class="option" data-value="nada">Não faço nada</div>
+                            </div>
+                        </div>
+                        
+                        <div class="question-container" data-question="q4">
+                            <label><i class="fas fa-question-circle"></i> Como você se sente em relação ao bullying?</label>
+                            <div class="options">
+                                <div class="option" data-value="triste">Triste</div>
+                                <div class="option" data-value="com-raiva">Com raiva</div>
+                                <div class="option" data-value="assustado">Assustado</div>
+                                <div class="option" data-value="indiferente">Indiferente</div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn" id="save-interview">
+                            <i class="fas fa-save"></i> Salvar Entrevista
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tela de Resultados -->
+                <div id="results-screen" class="screen">
+                    <h2>Resultados da Pesquisa</h2>
+                    <p style="text-align: center; margin-bottom: 20px; color: #555;">
+                        Veja os gráficos com os resultados das entrevistas
+                    </p>
+                    
+                    <div class="chart-container">
+                        <div class="chart-wrapper">
+                            <canvas id="bullying-chart"></canvas>
+                        </div>
+                        <div class="chart-actions">
+                            <button class="download-btn" id="download-chart">
+                                <i class="fas fa-download"></i> Baixar Gráfico (JPG)
+                            </button>
+                            <button class="download-btn" id="download-report">
+                                <i class="fas fa-file-alt"></i> Baixar Relatório Completo
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="results-container">
+                        <div class="result-card">
+                            <i class="fas fa-users" style="font-size: 2rem;"></i>
+                            <div class="result-value" id="total-interviews">0</div>
+                            <div class="result-label">Entrevistas Realizadas</div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <i class="fas fa-sad-tear" style="font-size: 2rem;"></i>
+                            <div class="result-value" id="bullying-victims">0%</div>
+                            <div class="result-label">Já sofreram bullying</div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <i class="fas fa-eye" style="font-size: 2rem;"></i>
+                            <div class="result-value" id="witnesses">0%</div>
+                            <div class="result-label">Já presenciaram bullying</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tela de Dados Salvos -->
+                <div id="data-screen" class="screen">
+                    <h2>Dados Salvos</h2>
+                    <p style="text-align: center; margin-bottom: 20px; color: #555;">
+                        Todas as entrevistas realizadas
+                    </p>
+                    
+                    <div id="saved-data-container" style="background: white; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: #4facfe; color: white;">
+                                    <th style="padding: 12px; text-align: left;">Repórter</th>
+                                    <th style="padding: 12px; text-align: left;">Entrevistado</th>
+                                    <th style="padding: 12px; text-align: left;">Data</th>
+                                    <th style="padding: 12px; text-align: left;">Sofreu Bullying?</th>
+                                </tr>
+                            </thead>
+                            <tbody id="saved-data-body">
+                                <!-- Dados serão inseridos aqui pelo JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <button class="btn" id="clear-data" style="margin-top: 20px; background: linear-gradient(to right, #ff6b6b 0%, #ff8e8e 100%);">
+                        <i class="fas fa-trash-alt"></i> Limpar Todos os Dados
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Projeto Prof. Francine para conscientização sobre bullying | 4ª ano</p>
+        </footer>
+    </div>
+<script src="mot.js"></script>
+</body>
+</html>
